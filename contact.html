@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <style>
+        .tbldetail input {
+            border: 1px solid #cbcbcb;
+            border-bottom: 2px solid blue;
+        }
+
+        .tbldetail span {
+            color: red;
+        }
+
+        h1 {
+            color: red;
+            text-shadow: 2px 1px 2px black;
+        }
+
+        .ketthuc {
+            padding: 2px 20px;
+            border-radius: 25px;
+            background-color: blue;
+            color: aliceblue;
+        }
+
+        .google {
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contact us </h1>
+    <form action="" onsubmit="return checkInfo()">
+        <fieldset style="width: 400px;">
+            <legend>
+                Your details :
+            </legend>
+
+            <table class="tbldetail">
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        <input type="text" name="name" id="name" pattern="[a-zA-Z ]{3, }">
+
+                    </td>
+                    <td>
+                        <span>
+                            *
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Email
+                    <td>
+                        <input type="email" name="email" id="email">
+                    </td>
+                    <td>
+                        <span>
+                            *
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+        <fieldset style="width: 400px;">
+            <legend>
+                Your Review:
+            </legend>
+
+            <table>
+                <tr>
+                    <td>
+                        How did you hear about us?
+                    </td>
+                    <td>
+                        <select name="prodcut" id="prodcut" class="google">
+                            <option value="Google">Google </option>
+                            <option value="Friend">Friend </option>
+                            <option value="Advert">Advert </option>
+                            <option value="Other">Other </option>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Would you visit again?
+                    </td>
+                    <td>
+                        <input type="radio" class="gender" name="gender" value="Yes"> Yes
+                        <input type="radio" class="gender" name="gender" value="No"> No
+                        <input type="radio" class="gender" name="gender" value="Maybe"> Maybe
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        comments:
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <textarea name="comment" id="comment" cols="40" rows="3"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="signme" id="signme" checked>
+                        <label for="signme">Sign me up for email updates</label>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Submit review" class="ketthuc">
+                        <input type="reset" value="Reset" class="ketthuc">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+    <script>
+        function checkInfo() {
+            var name = document.getElementById('name').value;
+
+            var email = document.getElementById('email').value;
+
+            var prodcut = document.getElementById('prodcut').value;
+
+            var gender = document.getElementsByClassName('gender');
+
+
+            var genderArray = new Array();
+
+            for (var i in gender) {
+                if (gender[i].checked) {
+                    genderArray.push(gender[i].value);
+                }
+            }
+
+            var comment = document.getElementById('comment').value;
+
+            alert(" thankyou message" + "\n"
+                + "Here is your information" + "\n"
+                + "-------------------------" + "\n"
+                + "Your details: " + "\n"
+                + "Name: " + name + "\n"
+                + "Email: " + email + "\n"
+                + "Your Review:: " + "\n"
+                + "How did you hear about us ?: " + prodcut + "\n"
+                + "Would you visit again? :" + genderArray + "\n"
+                + " comment: " + comment + "\n"
+            )
+        }
+
+    </script>
+</body>
+
+</html>
